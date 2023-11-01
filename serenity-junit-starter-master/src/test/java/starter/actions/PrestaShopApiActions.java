@@ -1,4 +1,4 @@
-package starter.prestashop;
+package starter.actions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
