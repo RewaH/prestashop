@@ -10,7 +10,7 @@ import org.hamcrest.Matchers;
 
 import static net.serenitybdd.rest.SerenityRest.*;
 
-public class PetApiActions extends UIInteractions {
+public class PrestaShopApiActions extends UIInteractions {
 
 	@Given("User can create new Address")
 	public void givenUserCanCreateNewAddress() {

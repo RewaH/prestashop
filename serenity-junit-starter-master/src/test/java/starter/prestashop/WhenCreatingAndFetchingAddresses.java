@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class WhenFetchingAlreadyAvailablePet {
+public class WhenCreatingAndFetchingAddresses {
 
     Long newPetId = null;
-    PetApiActions petApi;
+    PrestaShopApiActions petApi;
 
     @Test
     public void fetchAlreadyAvailablePet() {
