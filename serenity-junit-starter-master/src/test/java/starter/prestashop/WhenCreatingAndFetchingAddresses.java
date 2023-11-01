@@ -7,13 +7,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @ExtendWith(SerenityJUnit5Extension.class)
 public class WhenCreatingAndFetchingAddresses {
 
-    Long newPetId = null;
-    PrestaShopApiActions petApi;
-
+    PrestaShopApiActions prestaApi;
+    
     @Test
-    public void fetchAlreadyAvailablePet() {
-         petApi.givenUserCanCreateNewAddress();
-        petApi.whenUserCanRetriveAddressWithId(113);
-       //.thenISeeKittyAsResult();
+    public void createAndFetchAddress() {
+         prestaApi.givenUserCanCreateNewAddress();
+        prestaApi.whenUserCanRetriveAddressWithId(113);
+       prestaApi.thenIGotTheAddressAsAresult();
     
 }}

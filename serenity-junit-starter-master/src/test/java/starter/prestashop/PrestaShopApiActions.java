@@ -5,7 +5,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapperType;
+import io.restassured.response.Response;
 import net.serenitybdd.core.steps.UIInteractions;
+
+import static org.hamcrest.Matchers.equalTo;
+
 import org.hamcrest.Matchers;
 
 import static net.serenitybdd.rest.SerenityRest.*;
@@ -35,25 +39,38 @@ public class PrestaShopApiActions extends UIInteractions {
 
 	@When("User can retrive a spacific address with id {0}")
 
-	  public void whenIAskForAPetWithId(Long id) {
-        when().get("/" + id);
-    }
+	public void whenUserCanRetriveAddressWithId(int id) {
+		when().get("/" + id);
+				//.then().statusCode(200).body("prestashop.address.id", equalTo(id))
+				//.body("prestashop.address.firstname", equalTo("Rewaa")).extract().response();
+		//System.out.println(response);
+    
+	}
 
    
 
-    
-    public void whenUserCanRetriveAddressWithId(int id) {
+   
+  // TODO add then flow 
+	@Then("I got the address as a result with id{0}")
+	public void thenIGotTheAddressAsAresult() {
+Response respnse=	then().statusCode(200).body("prestashop.address.id", equalTo("113"))
+.body("prestashop.address.firstname", equalTo("Rewaa")).extract().response();
 		
-    	 when().get("/" + id);
-    		
-    		
-    	}
-    
-  /* TODO add then flow 
-    @Then("I get Kitty as result")
-    public void thenISeeKittyAsResult() {
-        then().body("name", Matchers.equalTo("Kitty"));
+		System.out.println(respnse);
     }
- */   
+   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
