@@ -15,6 +15,6 @@ public class WhenUpdatingAddress {
     @Test
     public void updateExistingAddress() {
          prestaUpdateApi.givenUserCanUpdateAnExsitingAddress(114);
-        // prestaUpdateApi.thenIGotTheUpdatedAddressAsResult();
+         prestaUpdateApi.thenIGotTheUpdatedAddressAsResult();
     
 }}
