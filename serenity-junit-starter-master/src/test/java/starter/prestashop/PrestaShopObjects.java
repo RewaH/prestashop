@@ -1,6 +1,5 @@
 package starter.prestashop;
 
-public class PrestaShopObjects
-{
-     
+public class PrestaShopObjects{
+	    private int id;
 }
