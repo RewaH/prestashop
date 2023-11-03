@@ -33,12 +33,21 @@ public class ConfigReader {
     	if(configReader == null) {
     		configReader = new ConfigReader();
     	}
-        return configReader;
+        return configReader; 
     }
     public String getBaseUrl() {
         String baseUrl = properties.getProperty("base_Url");
         if(baseUrl != null) return baseUrl;
         else throw new RuntimeException("base_Url not specified in the Configuration.properties file.");
     }
-	
+    public String getAuthorization() {
+        String authorization = properties.getProperty("authorization");
+        if(authorization != null) return authorization;
+        else throw new RuntimeException("authorization value not specified in the Configuration.properties file.");
+    }
+    public String getcookie() {
+        String cookie = properties.getProperty("authorization");
+        if(cookie != null) return cookie;
+        else throw new RuntimeException("cookie value not specified in the Configuration.properties file.");
+    }
 }
