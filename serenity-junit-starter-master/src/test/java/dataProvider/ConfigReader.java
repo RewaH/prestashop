@@ -13,7 +13,7 @@ public class ConfigReader {
 	
 	private ConfigReader() {
 		BufferedReader reader;
-	    	String propertyFilePath = "C:\\Users\\engre\\OneDrive\\Documents\\GitHub\\prestashop\\serenity-junit-starter-master\\Configs\\Configuration.properties";
+	    	String propertyFilePath = "Utils\\Configuration.properties";
 	        try {
 	            reader = new BufferedReader(new FileReader(propertyFilePath));
 	            properties = new Properties();
