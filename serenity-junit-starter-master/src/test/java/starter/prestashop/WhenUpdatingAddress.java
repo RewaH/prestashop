@@ -1,7 +1,7 @@
 package starter.prestashop;
 
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
-import starter.actions.PrestaShopApiActions;
+import starter.actions.PrestaShopAddressesActions;
 import starter.actions.prestaShopUpdateAddressActions;
 
 import org.junit.jupiter.api.Test;

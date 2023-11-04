@@ -8,8 +8,7 @@ import io.restassured.mapper.ObjectMapperType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import net.serenitybdd.core.steps.UIInteractions;
-import starter.prestashop.SwaggerRegisterObjects;
-
+import starter.pageObjects.SwaggerRegisterObjects;
 
 import static org.hamcrest.Matchers.equalTo;
 

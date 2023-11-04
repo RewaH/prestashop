@@ -1,4 +1,4 @@
-package starter.prestashop;
+package starter.pageObjects;
 
 public class SwaggerRegisterObjects{
 	private String username;

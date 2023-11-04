@@ -8,8 +8,8 @@ import io.restassured.mapper.ObjectMapperType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import net.serenitybdd.core.steps.UIInteractions;
-import starter.prestashop.SwaggerRegisterObjects;
-
+import starter.pageObjects.AddressesObjects;
+import starter.pageObjects.SwaggerRegisterObjects;
 
 import static org.hamcrest.Matchers.equalTo;
 
@@ -19,11 +19,13 @@ import dataProvider.ConfigReader;
 
 import static net.serenitybdd.rest.SerenityRest.*;
 
-public class PrestaShopApiActions extends UIInteractions {
-	int newAddressId;
+public class PrestaShopAddressesActions extends UIInteractions {
+	private int newAddressId;
+	private String addressfirstname;
 	@Given("User can create new Address")
 	public void givenUserCanCreateNewAddress() {
         ConfigReader configReader = ConfigReader.getInstance();
+     //   AddressesObjects addObj= new AddressesObjects();
 
 		String baseUrl=configReader.getBaseUrl();
 		String authorization=configReader.getAuthorization();
@@ -42,28 +44,28 @@ public class PrestaShopApiActions extends UIInteractions {
                 .body(requestBody).post();
         System.out.println(response.getStatusCode()); 
     	JsonPath jsonPathEvaluator = response.jsonPath();
-
         newAddressId=jsonPathEvaluator.getInt("address.id");
+        addressfirstname=jsonPathEvaluator.getString("address.firstname");
+
         System.out.println(newAddressId);
-        
-    }
+//        newId=response.getBody().as(AddressesObjects.class,ObjectMapperType.GSON).getId();
+//    	System.out.println("this is newId "+newId);
+   }
 
 	@When("User can retrive a spacific address with id {0}")
 
-	public void whenUserCanRetriveAddressWithId(int id) {
+	public void whenUserCanRetriveAddressWithId() {
 		when().get("/" + newAddressId);
 			
     
 	}
 
    
-
-   
   // TODO add then flow 
 	@Then("I got the address as a result with id{0}")
 	public void thenIGotTheAddressAsAresult() {
 Response respnse=	then().statusCode(200).body("address.id", equalTo(newAddressId))
-.body("address.firstname", equalTo("Rewa")).extract().response();
+.body("address.firstname", equalTo(addressfirstname)).extract().response();
 		
 		System.out.println(respnse.getStatusCode());
 
