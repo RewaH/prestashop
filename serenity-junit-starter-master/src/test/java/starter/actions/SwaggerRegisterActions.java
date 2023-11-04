@@ -37,13 +37,19 @@ public class SwaggerRegisterActions extends UIInteractions {
 	    }
 
 	   @When("I ask for a user using ID: {0}")
-	    public void whenIAskForAUserWithId(int id) {
-	        when().get("/" + id);
+	    public String whenIAskForAUserWithId(int id) {
+		 String email=  given()
+           .baseUri("https://reqres.in")
+           .basePath("/api/user/"+id)
+           .accept(ContentType.JSON)
+           .contentType(ContentType.JSON).get().getBody().as(SwaggerRegisterObjects.class, ObjectMapperType.GSON).getEmail();
+
+           return email;
 	    }
 
 	    @Then("I get the user as result")
-	    public void thenISeeUserAsResult() {
-	        then().body("first_name", Matchers.equalTo("eve"));
+	    public void thenISeeUserAsResult(String email) {
+	        then().body("email", Matchers.equalTo(email));
 	    }
 
 		

@@ -10,8 +10,9 @@ public class WhenRegisterSwagger {
 	    
 	    @Test
 	    public void createNewAccount() {
-	         requreReg.givenGuestCanCreateNewAccount();
-	       //  prestaUpdateApi.thenIGotTheUpdatedAddressAsResult();
+	         int id=requreReg.givenGuestCanCreateNewAccount();
+	        String email= requreReg.whenIAskForAUserWithId(id);
+	         requreReg.thenISeeUserAsResult(email);
 	    
 	}
 	
