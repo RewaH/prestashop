@@ -1,15 +1,16 @@
 package example;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class Person {
+public class Address {
     private String name;
     private int age;
 
-    public Person() {
+    public Address() {
     }
 
-    public Person(String name, int age) {
+    public Address(String name, int age) {
         this.name = name;
         this.age = age;
     }
