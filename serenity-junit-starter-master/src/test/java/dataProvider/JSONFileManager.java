@@ -1,4 +1,7 @@
 package dataProvider;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
@@ -104,9 +107,100 @@ public class JSONFileManager {
         return false;
     }
 
- 
+ // Reformat a specific JSON object by adding a new key-value pair
+ // Add a new key-value pair to a specific JSON object
+    public boolean addKeyValueToData(String key, String newKey, String newValue) {
+        JsonObject data = readData();
+        if (data != null && data.has(key)) {
+            JsonObject jsonObject = data.get(key).getAsJsonObject();
+            jsonObject.addProperty(newKey, newValue);
+            return writeData(data);
+        }
+        return false;
+    }
+    
+    
+///////////////////////////////////////////////////////////////////////////
+//// Parse a JSON object into a Java object
+    public <T> T parseData(String key, Class<T> clazz) {
+        JsonObject data = retrieveData(key);
+        if (data != null) {
+            return gson.fromJson(data, clazz);
+        }
+        return null;
+    }
 
+
+    
+    public String convertJSONToXML() {
+    	 try {
+             // Create a Jackson ObjectMapper for JSON
+             ObjectMapper jsonMapper = new ObjectMapper();
+
+             // Read JSON data from the file
+             JsonNode jsonNode = jsonMapper.readTree(new File(filePath));
+
+             // Create an XmlMapper for XML conversion
+             XmlMapper xmlMapper = new XmlMapper();
+
+             // Convert JSON data to XML
+             return xmlMapper.writeValueAsString(jsonNode);
+         } catch (IOException e) {
+             e.printStackTrace();
+             return null;
+         }
+     }
+    //////////////////////////////////////////////////////////////////////
+    // Create a new file
+
+    public void createJSONFile(String filePath, String jsonData) {
+        try {
+            // Create a new file
+            File file = new File(filePath);
+
+            // Check if the file already exists, and delete it if needed
+            if (file.exists()) {
+                file.delete();
+            }
+
+            // Create a FileWriter to write the JSON data to the file
+            FileWriter fileWriter = new FileWriter(file);
+
+            // Write the JSON data to the file
+            fileWriter.write(jsonData);
+
+            // Close the FileWriter
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    // delete a File 
+    public void deleteJSONFile(String filePath) {
+        try {
+            File file = new File(filePath);
+
+            // Check if the file exists and delete it
+            if (file.exists()) {
+                file.delete();
+                System.out.println("File deleted successfully.");
+            } else {
+                System.out.println("File does not exist.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+    
+ ////////////////////////////////////////////////////////////////////////////////
+    
     // Write JSON data back to the file
+   //**********************************//
     private boolean writeData(JsonObject data) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(gson.toJson(data));
@@ -116,6 +210,8 @@ public class JSONFileManager {
             return false;
         }
     }
-
     }
+
+
+    
 

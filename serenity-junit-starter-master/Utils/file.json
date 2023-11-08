@@ -2,12 +2,13 @@
   "person1": {
     "name": "John",
     "age": 30,
-    "city": "Alexandria",
+    "city": "Alexandria"
   },
   "person2": {
     "name": "Alice",
     "age": 25,
-    "city": "Los Angeles"
+    "city": "Los Angeles",
+    "gender": "male"
   },
   "person3": {
     "name": "Bob",
