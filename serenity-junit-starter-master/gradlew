@@ -232,3 +232,7 @@ eval "set -- $(
     )" '"$@"'
 
 exec "$JAVACMD" "$@"
+compile "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.0"
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.8' // Use the latest version
+}
