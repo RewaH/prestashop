@@ -1,0 +1,22 @@
+{
+  "person1": {
+    "name": "John",
+    "age": 30,
+    "city": "Alexandria",
+  },
+  "person2": {
+    "name": "Alice",
+    "age": 25,
+    "city": "Los Angeles"
+  },
+  "person3": {
+    "name": "Bob",
+    "age": 35,
+    "city": "Chicago"
+  },
+  "person4": {
+    "name": "Rewaa",
+    "age": 30,
+    "city": "Bentonville"
+  }
+}
