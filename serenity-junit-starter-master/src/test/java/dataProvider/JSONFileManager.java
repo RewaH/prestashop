@@ -158,10 +158,10 @@ public class JSONFileManager {
             // Create a new file
             File file = new File(filePath);
 
-            // Check if the file already exists, and delete it if needed
-            if (file.exists()) {
-                file.delete();
-            }
+//            // Check if the file already exists, and delete it if needed
+//            if (file.exists()) {
+//                file.delete();
+//            }
 
             // Create a FileWriter to write the JSON data to the file
             FileWriter fileWriter = new FileWriter(file);

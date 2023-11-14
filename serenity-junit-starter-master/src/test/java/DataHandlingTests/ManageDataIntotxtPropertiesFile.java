@@ -12,7 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import dataProvider.TxtFileManager;
 
-public class ManageDatafromtxtPropertiesFile {
+public class ManageDataIntotxtPropertiesFile {
     public static void main(String[] args) throws IOException {
 
 

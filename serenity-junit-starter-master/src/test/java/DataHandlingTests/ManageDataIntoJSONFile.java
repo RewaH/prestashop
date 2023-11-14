@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.gson.JsonObject;
 import dataProvider.JSONFileManager;
 
-public class ManageDataFromJSONFile {
+public class ManageDataIntoJSONFile {
 	static String filePath ="Utils\\file.json";
     public static void main(String[] args) throws IOException {
 
