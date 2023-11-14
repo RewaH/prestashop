@@ -1,0 +1,18 @@
+person1:
+  name: John
+  age: 30
+  city: New York
+person2:
+  name: Youssef
+  age: 7
+  city: Benton
+  gender: male
+person3:
+  name: Bob
+  age: 35
+  city: Chicago
+person4:
+  name: Rewaa
+  age: 30
+  city: Bentonville
+  gender: female

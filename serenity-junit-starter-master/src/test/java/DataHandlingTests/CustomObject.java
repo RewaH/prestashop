@@ -1,5 +1,5 @@
 package DataHandlingTests;
-
+// like Person as a class name
 	public class CustomObject {
 	    private String name;
 	    private int age;
