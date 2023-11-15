@@ -107,7 +107,6 @@ public class JSONFileManager {
         return false;
     }
 
- // Reformat a specific JSON object by adding a new key-value pair
  // Add a new key-value pair to a specific JSON object
     public boolean addKeyValueToData(String key, String newKey, String newValue) {
         JsonObject data = readData();

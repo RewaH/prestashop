@@ -6,9 +6,17 @@ package DataHandlingTests;
 	    private String city;
 	    private String gender;
 	    
-	    
+		public CustomObject() {
+			
+		}
 	    
 		
+		public CustomObject(String name, int age, String city) {
+			this.name=name;
+			this.age=age;
+			this.city=city;
+			// TODO Auto-generated constructor stub
+		}
 		public String getName() {
 			return name;
 		}
