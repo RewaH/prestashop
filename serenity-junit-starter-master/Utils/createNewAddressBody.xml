@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prestashop xmlns:xlink="http://www.w3.org/1999/xlink">
+    <address>
+        <id></id>
+        <id_customer></id_customer>
+        <id_manufacturer></id_manufacturer>
+        <id_supplier></id_supplier>
+        <id_warehouse></id_warehouse>
+        <id_country>20</id_country>
+        <id_state>7</id_state>
+        <alias>mrs</alias>
+        <company>appzlogic</company>
+        <lastname>Hamed</lastname>
+        <firstname>Rewa</firstname>
+        <vat_number>1234</vat_number>
+        <address1>123 Green street</address1>
+        <address2>Apt.6</address2>
+        <postcode>1234</postcode>
+        <city>Benton</city>
+        <other>Create new Address</other>
+        <phone>1234567</phone>
+        <phone_mobile>23456789</phone_mobile>
+        <dni></dni>
+        <deleted></deleted>
+        <date_add></date_add>
+        <date_upd></date_upd>
+    </address>
+</prestashop>
