@@ -15,15 +15,31 @@ import static org.hamcrest.Matchers.equalTo;
 import org.hamcrest.Matchers;
 
 import dataProvider.ConfigReader;
+import dataProvider.XLSXDataManager;
 
 import static net.serenitybdd.rest.SerenityRest.*;
 
 
 public class SwaggerRegisterActions extends UIInteractions {
 	@Given("Guest can register")
+	//read the data from excel file 
 	public int givenGuestCanCreateNewAccount() {
-		
-		SwaggerRegisterObjects sr =new SwaggerRegisterObjects( "eve.holt@reqres.in","pistol");
+		 String sheetName = "Sheet1"; 
+		    int lastNewId = -1; // Initialize to a default value
+
+		    XLSXDataManager xlsxDataManager = new XLSXDataManager("Utils/reqres.xlsx");
+		    Object[][] excelData = xlsxDataManager.readDataFromExcel(sheetName);
+
+
+		    for (Object[] row : excelData) {
+		        String email = row[0].toString();
+		        String password = row[1].toString();
+		        System.out.println("email is "+email);
+		        System.out.println("pass is "+password);
+
+				SwaggerRegisterObjects sr =new SwaggerRegisterObjects( email,password);
+
+		//SwaggerRegisterObjects sr =new SwaggerRegisterObjects( "eve.holt@reqres.in","pistol");
 
 		int newId = given()
 	                .baseUri("https://reqres.in")
@@ -32,8 +48,10 @@ public class SwaggerRegisterActions extends UIInteractions {
 	                .accept(ContentType.JSON)
 	                .contentType(ContentType.JSON).post().getBody().as(SwaggerRegisterObjects.class, ObjectMapperType.GSON).getId();
 		 System.out.println(newId);
-		 return newId;
-	    }
+		  lastNewId = newId; // Update lastNewId with the latest ID obtained
+		    }
+		    return lastNewId; // Return the last obtained newId from the loop
+		}
 
 	   @When("I ask for a user using ID: {0}")
 	    public String whenIAskForAUserWithId(int id) {

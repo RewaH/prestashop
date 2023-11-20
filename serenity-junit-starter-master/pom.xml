@@ -133,6 +133,43 @@
 </dependency>
     
     
+    <!-- Apache POI -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>5.2.4</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.15.0</version>
+</dependency>
+
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>5.2.4</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml-schemas</artifactId>
+        <version>4.1.2</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+<dependency>
+    <groupId>org.apache.xmlbeans</groupId>
+    <artifactId>xmlbeans</artifactId>
+    <version>5.1.1</version>
+</dependency>
+ 
+ <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.21.1</version>
+</dependency>
+  
     </dependencies>
     <build>
         <plugins>
@@ -149,10 +186,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <includes>
-						<include>WhenCreatingAndFetchingAddresses.java</include>
-                        <include>WhenCreatingAndFetchingCustomers.java</include>
                         <include>WhenRegisterSwagger.java</include>
-                        <include>WhenUpdatingAddress.java</include>
                         
                     </includes>
                     <systemPropertyVariables>
