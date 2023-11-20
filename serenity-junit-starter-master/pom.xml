@@ -186,7 +186,10 @@
                 <version>3.1.2</version>
                 <configuration>
                     <includes>
+						<include>WhenCreatingAndFetchingAddresses.java</include>
+                        <include>WhenCreatingAndFetchingCustomers.java</include>
                         <include>WhenRegisterSwagger.java</include>
+                        <include>WhenUpdatingAddress.java</include>
                         
                     </includes>
                     <systemPropertyVariables>
